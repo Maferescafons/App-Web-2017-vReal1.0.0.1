@@ -288,6 +288,19 @@
 
   <input type="submit" value="Upload" class="btn btn-primary">
 </form>
+
+  <form action="/filedownloader" method="get">
+    <input hidden
+           type="text"
+           value="<%=articulos.id%>"
+           name="id">
+    <button  type="submit"
+             class="btn btn-outline-danger">Download</button>
+
+  </form>
+
+
+
 </div>
 <br>
 <br>
@@ -337,3 +350,4 @@
 <br>
 <br>
 <br>
+

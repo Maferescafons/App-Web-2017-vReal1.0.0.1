@@ -2,7 +2,7 @@
 module.exports = {
     crearArticuloQuemado: function (req, res) {
         var parametros = req.allParams();
-        var nuevoArticulo = {//obtenemos los datos del articulo a guardar
+        var nuevoArticulo = {
             country: parametros.country,
             number: parametros.number,
             title: parametros.title,
@@ -21,7 +21,7 @@ module.exports = {
             notas: parametros.notas,
             searchWord: parametros.busqueda
         };
-        Articulo.create(nuevoArticulo)//funcion para crear un nuevo articulo
+        Articulo.create(nuevoArticulo)
             .exec(function (error, articuloCreado) {
             if (error) {
                 return res.serverError(error);

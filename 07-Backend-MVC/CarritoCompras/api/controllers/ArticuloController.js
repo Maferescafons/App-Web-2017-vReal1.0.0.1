@@ -1,6 +1,6 @@
 //    localhost:1337/Articulo/metodos
 module.exports = {
-    eliminarArticulo: function (req, res) { //funcion para eliminar un articulo
+    eliminarArticulo: function (req, res) {
         var params = req.allParams();
         sails.log.info("Parametros", params);
         if (req.method == "POST" && params.id) {
@@ -16,7 +16,7 @@ module.exports = {
             return res.badRequest();
         }
     },
-    VerArticulo: function (req, res) { //funcion para visualizar los datos del articulo
+    VerArticulo: function (req, res) {
         var parametros = req.allParams();
         if (parametros.id) {
             Articulo.findOne({
@@ -41,7 +41,7 @@ module.exports = {
             return res.redirect('/');
         }
     },
-    editanota: function (req, res) {//funcion para editar datos del articulo
+    editanota: function (req, res) {
         var parametros = req.allParams();
         if (parametros.title &&
             parametros.country &&

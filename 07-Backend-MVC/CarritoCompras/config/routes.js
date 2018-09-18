@@ -57,6 +57,7 @@ module.exports.routes = {
     'ArticuloController.VerArticulo',//ver contenido de mi biblioteca
   'get /VerMisArticulo':
     'SaludoController.VerMiArticulo',//ver contenido de Mi articulo creado
+  'get /filedownloader': 'FileController.download',
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

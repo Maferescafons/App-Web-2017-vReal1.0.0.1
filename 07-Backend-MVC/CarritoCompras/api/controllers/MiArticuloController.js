@@ -26,10 +26,10 @@ module.exports = {
             parametros.pages &&
             parametros.notas &&
             parametros.id) {
-            MiArticulo.update({ //funcion para actualizar datos del articulo creado por el usuario
-                id: parametros.id//obtenemos el id del articulo que queremos actualizar
+            MiArticulo.update({
+                id: parametros.id
             }, {
-                title: parametros.title,  //obtenemos los datos del articulo que vamos a actualizar
+                title: parametros.title,
                 country: parametros.country,
                 number: parametros.number,
                 volume: parametros.volume,
