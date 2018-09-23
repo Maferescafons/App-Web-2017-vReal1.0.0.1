@@ -4,7 +4,7 @@
 declare var module;
 declare var sails;
 declare var Articulo;
-
+declare var File;
 
 
 //    localhost:1337/Articulo/metodos
@@ -44,9 +44,25 @@ module.exports = {
           if(err) return res.serverError(err);
           if(articuloEditado){
             //Si encontro
-            return res.view('editarArticulo',{
-              articulos:articuloEditado
-            })
+            File.findOne({fkIdArticulo:parametros.id}).exec(
+              (error,File)=>{
+                if(error){
+                  return res.serverError(error);
+                }
+                if (!File) {
+                  return res.view('editarArticulo',{
+                    articulos:articuloEditado
+
+                  })
+                }
+                return res.view('editarArticulo',{
+                  articulos:articuloEditado,
+                  File:File
+
+                })
+              }
+            )
+
           }else{
             //No encontro
             return res.redirect('/')

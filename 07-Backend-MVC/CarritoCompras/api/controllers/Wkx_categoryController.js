@@ -1,7 +1,7 @@
 // /Saludo/crearUsuarioQuemado
 module.exports = {
     crearArticuloQuemado: function (req, res) {
-        var parametros = req.allParams(); //obtenemos los datos de la vista
+        var parametros = req.allParams();
         var nuevaCategoria = {
             categoryCategory: parametros.category
         };
@@ -118,21 +118,21 @@ module.exports = {
                 });
             }
         });
-        Wkx_category.create(nuevaCategoria)//nueva categoria
+        Wkx_category.create(nuevaCategoria)
             .exec(function (error, articuloCreado) {
             if (error) {
                 return res.serverError(error);
             }
             else {
                 CategoryId = articuloCreado.categoryId;
-                Wkx_resource.create(nuevoResourse) //crear un nuevo recurso
+                Wkx_resource.create(nuevoResourse)
                     .exec(function (error, articuloCreado) {
                     if (error) {
                         return res.serverError(error);
                     }
                     else {
                         ResourceId = articuloCreado.resourceId;
-                        Wkx_resource_category.create({ //crear una categoria
+                        Wkx_resource_category.create({
                             resourcecategoryResourceId: articuloCreado.resourceId,
                             resourcecategoryCategoryId: CategoryId
                         }).exec(function (error, articuloCreado) {
@@ -140,7 +140,7 @@ module.exports = {
                                 return res.serverError(error);
                             }
                             else {
-                                Wkx_creator.create(nuevoAuthor)//nuevo autor
+                                Wkx_creator.create(nuevoAuthor)
                                     .exec(function (error, articuloCreado) {
                                     if (error) {
                                         return res.serverError(error);
